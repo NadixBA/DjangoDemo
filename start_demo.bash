@@ -13,11 +13,10 @@ echo "Please Enter your Username and push [Enter]"
 read username
 
 su -c "touch $log" $username
-echo " " > $log
 
 touch /tmp/dateien.liste
 
-echo "/usr/bin/apt-get install sqlite3 -y" > /tmp/dateien.liste
+echo "/usr/bin/apt-get install sqlite3 -y" >> /tmp/dateien.liste
 echo "/usr/bin/apt-get install vim -y" >> /tmp/dateien.liste
 echo "/usr/bin/apt-get install python -y" >> /tmp/dateien.liste
 echo "/usr/bin/apt-get install python3 -y">> /tmp/dateien.liste
@@ -51,7 +50,7 @@ echo "git config --global user.name '$username' &>> $log " >> ~/startGit.txt
 echo "git config --global user.email '$username@your.EMail.de' &>> $log " >> ~/startGit.txt
 echo "ssh-keyscan github.com >> ~/.ssh/known_hosts &>> $log " >> ~/startGit.txt
 echo "ssh -T git@github.com &>> $log" >> ~/startGit.txt
-echo "git clone git@github.com:NadixBA/DjangoDemo.git" >> ~/startGit.txt
+echo "git clone https://github.com/NadixBA/DjangoDemo.git" >> ~/startGit.txt
 
 su -c "bash ~/startGit.txt" $username
 
