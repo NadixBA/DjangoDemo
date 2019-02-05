@@ -16,17 +16,19 @@ su -c "touch $log" $username
 
 touch /tmp/dateien.liste
 
-echo "/usr/bin/apt-get install sqlite3 -y" >> /tmp/dateien.liste
-echo "/usr/bin/apt-get install vim -y" >> /tmp/dateien.liste
-echo "/usr/bin/apt-get install python -y" >> /tmp/dateien.liste
-echo "/usr/bin/apt-get install python3 -y">> /tmp/dateien.liste
-echo "/usr/bin/apt-get install curl -y" >> /tmp/dateien.liste
-echo "/usr/bin/apt install ssh-askpass -y" >> /tmp/dateien.liste
+/usr/bin/apt-get -f install sqlite3 -y | grep Sperre
+
+echo "/usr/bin/apt-get -f install sqlite3 -y" > /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install vim -y" >> /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install python -y" >> /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install python3 -y">> /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install curl -y" >> /tmp/dateien.liste
+echo "/usr/bin/apt -f install ssh-askpass -y" >> /tmp/dateien.liste
 echo "/usr/bin/curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"	>> /tmp/dateien.liste
 echo "/usr/bin/python get-pip.py" >> /tmp/dateien.liste
 echo "/usr/local/bin/pip install -U pip"  >> /tmp/dateien.liste
-echo "/usr/bin/apt-get install git -y" >> /tmp/dateien.liste
-echo "/usr/bin/apt-get install intellij-idea-community -y" >> /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install git -y" >> /tmp/dateien.liste
+echo "/usr/bin/apt-get -f install intellij-idea-community -y" >> /tmp/dateien.liste
 
 #Django Spezifisch
 echo "/usr/local/bin/pip install Django" >> /tmp/dateien.liste
